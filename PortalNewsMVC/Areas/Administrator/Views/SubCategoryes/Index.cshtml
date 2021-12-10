@@ -1,0 +1,45 @@
+﻿@model IEnumerable<PortalNewsMVC.Models.Domain.SubCategorye>
+
+@{
+    ViewBag.Title = "مدیریت زیر دسته ها";
+    Layout = "~/Areas/Administrator/Views/Shared/_Shared.cshtml";
+}
+
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">مدیریت زیر دسته ها</h1>
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+<hr />
+
+<p>
+    @Html.ActionLink("تعریف زیر دسته", "Create",null,new { @class = "btn btn-danger" })
+</p>
+<table class="table table-bordered table-hover table-responsive">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.SubCategoryName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Categorye.CategoryTitle)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.SubCategoryName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Categorye.CategoryTitle)
+        </td>
+        <td>
+            @Html.ActionLink("ویرایش", "Edit", new { id=item.SubCategoryID },new { @class = "btn btn-success" }) |
+            @Html.ActionLink("حذف", "Delete", new { id=item.SubCategoryID }, new { @class = "btn btn-danger" })
+        </td>
+    </tr>
+}
+
+</table>

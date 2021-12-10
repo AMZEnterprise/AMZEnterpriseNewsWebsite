@@ -1,0 +1,152 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title - AMZEnterprise Panel</title>
+
+    <!-- Core CSS - Include with every page -->
+    <link href="/CDN/Admin/css/bootstrap-rtl.css" rel="stylesheet" />
+
+    <link href="/CDN/Admin/font-awesome/css/font-awesome.css" rel="stylesheet">
+
+    <!-- Page-Level Plugin CSS - Dashboard -->
+    <link href="/CDN/Admin/css/plugins/morris/morris-0.4.3.min.css" rel="stylesheet">
+    <link href="/CDN/Admin/css/plugins/timeline/timeline.css" rel="stylesheet">
+
+    <!-- SB Admin CSS - Include with every page -->
+    <link href="/CDN/Admin/css/sb-admin.css" rel="stylesheet">
+
+
+</head>
+<body>
+    <div id="wrapper">
+
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="~/Administrator/Dashboard/Dashboard">
+                    AMZEnterprise Panel
+                </a>
+            </div>
+            <!-- /.navbar-header -->
+
+            <ul class="nav navbar-top-links navbar-left">
+             
+                <!-- /.dropdown -->
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                  
+                        <li class="divider"></li>
+                        <li>
+                            @*@Html.ActionLink("خروج از سایت", "LogOut")*@
+                            @Html.ActionLink("خروج از سایت", "LogOut", "Account", new { Area = "" }, new { })
+
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-user -->
+                </li>
+                <!-- /.dropdown -->
+            </ul>
+            <!-- /.navbar-top-links -->
+
+            <div class="navbar-default navbar-static-side" role="navigation">
+                <div class="sidebar-collapse">
+                    <ul class="nav" id="side-menu">
+
+                        <li>
+                            <a href="~/Administrator/Dashboard/Dashboard"><i class="fa fa-dashboard fa-fw"></i> داشبورد</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> دسته ها<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="~/Administrator/Categoryes">دسته بندی</a>
+                                </li>
+                                <li>
+                                    <a href="~/Administrator/Subcategoryes">زیر دسته بندی</a>
+                                </li>
+
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li>
+                            <a href="~/Administrator/News"><i class="fa fa-table fa-fw"></i> خبرها</a>
+                        </li>
+                        <li>
+                            <a href="~/Administrator/users/"><i class="fa fa-edit fa-fw"></i> کاربران</a>
+                        </li>
+                        <li>
+                            <a href="~/Administrator/Roles/"><i class="fa fa-edit fa-fw"></i> سطح های دسترسی</a>
+                        </li>
+                        <li>
+                            <a href="~/Administrator/Sites/"><i class="fa fa-edit fa-fw"></i> تنظیمات سایت</a>
+                        </li>
+
+                        <li>
+                            <a href="~/Administrator/NewsLatters/"><i class="fa fa-edit fa-sort-numeric-asc"></i> خبر نامه </a>
+                        </li>
+
+
+                        <li>
+                            <a href="~/Administrator/ContactUs/"><i class="fa fa-edit fa-phone"></i> تماس با ما </a>
+                        </li>
+
+
+                        <li>
+                            <a href="/" target="_blank"><i class="fa fa-edit fa-adn"></i> نمایش سایت</a>
+                        </li>
+                    </ul>
+                    <!-- /#side-menu -->
+                </div>
+                <!-- /.sidebar-collapse -->
+            </div>
+            <!-- /.navbar-static-side -->
+        </nav>
+
+
+        <div id="page-wrapper">
+
+            <!-- /.row -->
+            <div class="row">
+
+                @RenderBody()
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!-- Core Scripts - Include with every page -->
+    <script src="/CDN/Admin/js/jquery-1.10.2.js"></script>
+    <script src="/CDN/Admin/js/bootstrap.min.js"></script>
+    <script src="/CDN/Admin/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+
+    <!-- Page-Level Plugin Scripts - Dashboard -->
+    <script src="/CDN/Admin/js/plugins/morris/raphael-2.1.0.min.js"></script>
+    <script src="/CDN/Admin/js/plugins/morris/morris.js"></script>
+
+    <!-- SB Admin Scripts - Include with every page -->
+    <script src="/CDN/Admin/js/sb-admin.js"></script>
+
+    <!-- Page-Level Demo Scripts - Dashboard - Use for reference -->
+    <script src="/CDN/Admin/js/demo/dashboard-demo.js"></script>
+
+   @RenderSection("script", false)
+</body>
+</html>

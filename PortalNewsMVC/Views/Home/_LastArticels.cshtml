@@ -1,0 +1,29 @@
+﻿@model IEnumerable<PortalNewsMVC.Models.Domain.News>
+
+<div class="latest-articles">
+    <h3 class="tittle">
+        <i class="glyphicon glyphicon-file"></i>
+        آخرین مقالات
+    </h3>
+
+    <div class="world-news-grids">
+        @foreach (var item in Model)
+        {
+            <div class="world-news-grid">
+                <img src="~/Upload/Images/Thumb/@item.NewsImage" alt="@item.NewsTitle" />
+                <a href="/Home/SinglePage/@item.NewsID" class="wd">
+                    @item.NewsTitle
+                </a>
+                <p>
+                </p>
+                <a class="read" href="/Home/SinglePage/@item.NewsID">
+                    ادامه مطلب
+                </a>
+            </div>
+
+        }
+
+        </div>
+       
+
+    </div>

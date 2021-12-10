@@ -1,0 +1,83 @@
+﻿@model PortalNewsMVC.Models.Domain.News
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Administrator/Views/Shared/_Shared.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>News</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NewsTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NewsTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NewsDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NewsDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NewsDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NewsDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NewsImage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NewsImage)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LogDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LogDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Categorye.CategoryTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Categorye.CategoryTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SubCategorye.SubCategoryName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SubCategorye.SubCategoryName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.User.Username)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User.Username)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.NewsID }) |
+    @Html.ActionLink("بازگشت به لیست", "Index")
+</p>

@@ -1,0 +1,49 @@
+﻿@model PortalNewsMVC.Models.Domain.Site
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Administrator/Views/Shared/_Shared.cshtml";
+}
+
+<h2>حذف اطلاعات</h2>
+<hr />
+
+<h3 class="alert alert-danger">ایا از  حذف مطمن هستید ؟</h3>
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SiteName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SiteName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SiteDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SiteDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SiteAbout)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SiteAbout)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="حذف " class="btn btn-danger" /> |
+            @Html.ActionLink("بازگشت به لیست", "Index")
+        </div>
+    }
+</div>

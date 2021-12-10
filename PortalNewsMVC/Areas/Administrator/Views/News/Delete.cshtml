@@ -1,0 +1,42 @@
+﻿@model PortalNewsMVC.Models.Domain.News
+
+@{
+    ViewBag.Title = "حذف خبر";
+    Layout = "~/Areas/Administrator/Views/Shared/_Shared.cshtml";
+}
+
+<h2> حذف خبر</h2>
+<hr />
+
+<h3 class="alert alert-danger">آیا از حذف خبر @Model.NewsTitle مطمن هستید ؟</h3>
+<hr />
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NewsTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NewsTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NewsDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NewsDate)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="حذف" class="btn btn-danger" /> |
+            @Html.ActionLink("بازگشت به لیست", "Index")
+        </div>
+    }
+</div>

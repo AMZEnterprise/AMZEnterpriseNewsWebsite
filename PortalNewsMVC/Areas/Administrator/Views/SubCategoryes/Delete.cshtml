@@ -1,0 +1,45 @@
+﻿@model PortalNewsMVC.Models.Domain.SubCategorye
+
+@{
+    ViewBag.Title = "حذف " + " " + Model.SubCategoryName;
+    Layout = "~/Areas/Administrator/Views/Shared/_Shared.cshtml";
+}
+
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">حذف زیر دسته @Model.SubCategoryName</h1>
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+<hr />
+<h5 class="alert alert-danger">آیا از حذف زیر دسته @Model.SubCategoryName مطمن هستید ؟</h5>
+<div>
+
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SubCategoryName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SubCategoryName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Categorye.CategoryTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Categorye.CategoryTitle)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="حذف" class="btn btn-warning" /> |
+            @Html.ActionLink("انصراف", "Index",null,new { @class = "btn btn-danger" })
+        </div>
+    }
+</div>

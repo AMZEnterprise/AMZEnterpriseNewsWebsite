@@ -1,0 +1,57 @@
+﻿@{
+    PortalNewsMVC.Models.Repository.SiteRepository siteAbout = new PortalNewsMVC.Models.Repository.SiteRepository();
+}
+<div class="col-md-4 mag-inner-left">
+    <div class="connect">
+        <h4 class="side">
+            همیشه در ارتباط ماندن
+        </h4>
+        <ul class="stay">
+            <li class="c5-element-facebook">
+                <a href="#">
+                    <span class="icon"></span><h5>700</h5><span class="text">
+
+                        فیسبوک
+                    </span>
+                </a>
+            </li>
+            <li class="c5-element-twitter">
+                <a href="#">
+                    <span class="icon1"></span><h5>201</h5><span class="text">
+
+                        توئیتر
+                    </span>
+                </a>
+            </li>
+            <li class="c5-element-gg">
+                <a href="#">
+                    <span class="icon2"></span><h5>111</h5><span class="text">
+
+                       گوگل پلاس
+                    </span>
+                </a>
+            </li>
+            <li class="c5-element-dribble">
+                <a href="#">
+                    <span class="icon3"></span><h5>99</h5><span class="text">
+
+                        دریبل
+                    </span>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+    <div class="modern">
+        <h4 class="side">درباره ما</h4>
+        <div id="example1">
+            @siteAbout.GetAboutSite();
+        </div>
+        <!-- requried-jsfiles-for owl -->
+
+    </div>
+    @Html.Action("NewsLetter","Home")
+
+    @Html.Action("PostMahboob", "Home")
+    <!--//top-news-->
+</div>

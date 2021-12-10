@@ -1,0 +1,36 @@
+﻿@model IEnumerable<PortalNewsMVC.Models.Domain.News>
+
+<hr />
+<div class="technology">
+    <h2 class="tittle"><i class="glyphicon glyphicon-certificate">  </i> ورزشی</h2>
+
+
+    <div class="col-md-6 tech-img">
+        @foreach (var item in Model.Take(1))
+        {
+            <img src="~/Upload/Images/Image/@item.NewsImage" class="img-responsive" alt="@item.NewsTitle" />
+        }
+    </div>
+
+
+
+    <div class="col-md-6 tech-text">
+        @foreach (var item in Model)
+        {
+            <div class="editor-pics">
+                <div class="col-md-3 item-pic">
+                    <img src="~/Upload/Images/Thumb/@item.NewsImage" class="img-responsive" alt="" />
+
+                </div>
+                <div class="col-md-9 item-details">
+                    <h5 class="inner two"><a href="/Home/SinglePage/@item.NewsID">@item.NewsTitle </a></h5>
+                    <div class="td-post-date two">@item.NewsDate.ToString("yyyy/MM/dd")</div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        }
+    </div>
+
+    <div class="clearfix"></div>
+</div>
+

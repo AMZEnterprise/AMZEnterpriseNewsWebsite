@@ -1,0 +1,43 @@
+﻿@model IEnumerable<PortalNewsMVC.Models.Domain.NewsLatter>
+
+@{
+    ViewBag.Title = "خبر نامه";
+    Layout = "~/Areas/Administrator/Views/Shared/_Shared.cshtml";
+}
+
+<h2>لیست خبر نامه</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FullName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.FullName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date)
+        </td>
+        <td>
+            @Html.ActionLink("ویرایش", "Edit", new { id=item.NewsLaterID },new {@class = "btn btn-default" }) |
+            @Html.ActionLink("حذف", "Delete", new { id=item.NewsLaterID }, new { @class = "btn btn-danger" })
+        </td>
+    </tr>
+}
+
+</table>

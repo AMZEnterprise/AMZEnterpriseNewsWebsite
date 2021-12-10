@@ -1,0 +1,67 @@
+﻿@model IEnumerable<PortalNewsMVC.Models.Domain.News>
+
+@{
+    ViewBag.Title = "مدیریت اخبار";
+    Layout = "~/Areas/Administrator/Views/Shared/_Shared.cshtml";
+}
+
+<h2>لیست اخبار منتشر شده</h2>
+
+<p>
+    @Html.ActionLink("خبر جدید", "Create", null, new { @class = "btn btn-danger" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NewsImage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NewsTitle)
+        </th>
+   
+        <th>
+            @Html.DisplayNameFor(model => model.NewsDate)
+        </th>
+  
+        <th>
+            @Html.DisplayNameFor(model => model.Categorye.CategoryTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SubCategorye.SubCategoryName)
+        </th>
+        <th>
+            ارسال کننده خبر
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+           <img src="~/Upload/Images/Thumb/@item.NewsImage">
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NewsTitle)
+        </td>
+       
+        <td>
+            @Html.DisplayFor(modelItem => item.NewsDate)
+        </td>
+            
+        <td>
+            @Html.DisplayFor(modelItem => item.Categorye.CategoryTitle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SubCategorye.SubCategoryName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.User.FullName)
+        </td>
+        <td>
+            @Html.ActionLink("ویرایش", "Edit", new { id=item.NewsID }, new { @class = "btn btn-default" }) |
+            @Html.ActionLink("حذف", "Delete", new { id=item.NewsID }, new { @class = "btn btn-danger" })
+        </td>
+    </tr>
+}
+
+</table>

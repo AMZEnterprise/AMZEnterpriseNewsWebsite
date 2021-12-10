@@ -1,0 +1,69 @@
+﻿@model PortalNewsMVC.Models.Domain.News
+
+@{
+    ViewBag.Title = Model.NewsTitle;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="banner two" style="background: url(/Upload/Images/Image/@Model.NewsImage)">
+    <div class="container">
+        <h2 class="inner-tittle">
+            @Model.NewsTitle
+        </h2>
+    </div>
+</div>
+
+<div class="main-content">
+    <div class="container">
+        <div class="mag-inner">
+            <div class="col-md-8 mag-innert-right">
+                <div class="banner-bottom-right-grids">
+                    <div class="single-right-grid">
+                        <img src="~/Upload/Images/Image/@Model.NewsImage" alt="">
+                        <p class="text">
+                            @Html.Raw(Model.NewsDescription)
+                        </p>
+                        <div class="single-bottom">
+                            <ul>
+                                <li>
+                                    <a href="#">
+                                        @Model.User.FullName
+                                    </a>
+                                </li>
+                                <li>@Model.NewsDate.ToString("yyyy/MM/dd")</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="post">
+                    <a href="#">
+                        <h3>
+                            آخرین پست ها
+                        </h3>
+                    </a>
+                    <div class="post-grids">
+                        <div class="col-md-3 post-right">
+                            <a href="/Home/SinglePage/@Model.NewsID"><img src="~/Upload/Images/Thumb/@Model.NewsImage" alt="@Model.NewsTitle"></a>
+                        </div>
+                        <div class="col-md-9 post-left">
+                            <h4><a href="/Home/SinglePage/@Model.NewsID">@Model.NewsTitle</a></h4>
+                            <p class="comments">
+                                @Model.NewsDate.ToString("yyyy/MM/dd")
+                            </p>
+                            <p class="text">
+                                @Html.Raw(Model.NewsDescription.Substring(0,50))
+                            </p>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </div>
+
+                </div>
+                <!--//leave-->
+                <!--RTL & Persian LNG & Publicer By Www.20script.ir-->
+            </div>
+
+            @Html.Action("Saidbar", "Home")
+        </div>
+    </div>
+</div>
+

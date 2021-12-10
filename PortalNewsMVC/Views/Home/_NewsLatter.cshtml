@@ -1,0 +1,22 @@
+﻿@model PortalNewsMVC.Models.Domain.NewsLatter
+
+<div class="sign_main">
+    <h4 class="side">
+        ثبت نام برای خبرنامه
+    </h4>
+    <div class="sign_up">
+        <p class="sign">
+            ثبت نام برای دریافت خبرنامه رایگان ما!
+        </p>
+        @{
+            using (Html.BeginForm("NewsLetter", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+            <input type="text" class="text"  name="FullName" id="FullName" placeholder="@Html.DisplayNameFor(m=>m.FullName)">
+            <input type="text" class="text" name="Email" id="Email" placeholder="@Html.DisplayNameFor(m=>m.Email)">
+            <input type="submit" value="ارسال">
+            }
+
+        }
+        <p class="spam">با عضویت در خبرنامه میتوانید از اخرین اخبار مطلع شوید</p>
+    </div>
+</div>

@@ -1,0 +1,47 @@
+﻿@model IEnumerable<PortalNewsMVC.Models.Domain.Categorye>
+@{
+    ViewBag.Title = "دسته بندی ها";
+    Layout = "~/Areas/Administrator/Views/Shared/_Shared.cshtml";
+}
+
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">دسته بندی ها</h1>
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+<br />
+
+<p>
+    @Html.ActionLink("دسته جدید", "Create", null, new { @class = "btn btn-danger" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CategoryTitle)
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CategoryTitle)
+            </td>
+
+        
+          
+            <td>
+                @Html.ActionLink("ویرایش", "Edit", new { id = item.CategoryID }, new { @class = "btn btn-success" }) |
+                @if (@item.CategoryID != 0)
+                {
+                    @Html.ActionLink("حذف", "Delete", new { id = item.CategoryID }, new { @class = "btn btn-danger" })
+
+                }
+
+
+            </td>
+        </tr>
+    }
+
+</table>
+

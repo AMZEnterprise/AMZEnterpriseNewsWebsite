@@ -1,0 +1,19 @@
+﻿@model IEnumerable<PortalNewsMVC.Models.Domain.News>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <i class="fa fa-bell fa-fw"></i> آخرین مطالب منتشر شده
+    </div>
+    <!-- /.panel-heading -->
+    <div class="panel-body">
+        <div class="list-group">
+            @foreach (var item in Model)
+            {
+            <a href="/Home/SinglePage/@item.NewsID" target="_blank" class="list-group-item">
+                <i class="fa fa-comment fa-fw"></i> @item.NewsTitle
+                <span class="pull-left text-muted small">
+                </span>
+            </a>
+            }
+        </div>
+    </div>
+</div>

@@ -1,0 +1,32 @@
+﻿@model PortalNewsMVC.Models.Domain.Categorye
+
+@{
+    ViewBag.Title = "حذف" + " " + Model.CategoryTitle;
+    Layout = "~/Areas/Administrator/Views/Shared/_Shared.cshtml";
+}
+
+<h2>حذف دسته @Model.CategoryTitle</h2>
+<hr />
+<div>
+
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CategoryTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CategoryTitle)
+        </dd>
+
+    </dl>
+   
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+        <h6 class="alert alert-danger">  شمار در حال حذف دسته @Model.CategoryTitle هستید.آیا مطمن هستید ؟</h6>
+
+        <div class="form-actions no-color">
+            <input type="submit" value="حذف" class="btn btn-warning" /> |
+            @Html.ActionLink("انصراف", "Index",null,new { @class = "btn btn-danger" })
+        </div>
+    }
+</div>

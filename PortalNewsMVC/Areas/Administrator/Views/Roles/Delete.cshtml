@@ -1,0 +1,79 @@
+﻿@model PortalNewsMVC.Models.Domain.Role
+
+@{
+    ViewBag.Title = "حذف سطح دسترسی";
+    Layout = "~/Areas/Administrator/Views/Shared/_Shared.cshtml";
+}
+
+<h2>حذف اطلاعات</h2>
+
+<h3 class="alert alert-danger">آیا برای حذف @Model.RoleTitle  با شماره ثبت @Model.RoleID مطمن هستید ؟</h3>
+<div>
+    <div class="col-md-6">
+
+        <table class="table table-bordered table-hover table-responsive">
+
+
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.RoleID)
+
+
+                </th>
+                <th>
+                    @Html.DisplayFor(model => model.RoleID)
+
+
+                </th>
+
+
+
+            </tr>
+
+
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.RoleTitle)
+
+
+                </th>
+                <th>
+                    @Html.DisplayFor(model => model.RoleTitle)
+
+
+                </th>
+
+
+
+            </tr>
+
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.RoleName)
+
+
+                </th>
+
+                <th>
+                    @Html.DisplayFor(model => model.RoleName)
+
+
+                </th>
+            </tr>
+
+
+        </table>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="حذف" class="btn btn-warning" /> |
+                @Html.ActionLink("انصراف", "Index", null, new { @class = "btn btn-danger" })
+            </div>
+        }
+    </div>
+
+
+</div>

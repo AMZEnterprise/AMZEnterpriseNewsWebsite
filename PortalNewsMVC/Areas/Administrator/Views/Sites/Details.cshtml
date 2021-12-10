@@ -1,0 +1,42 @@
+﻿@model PortalNewsMVC.Models.Domain.Site
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Administrator/Views/Shared/_Shared.cshtml";
+}
+
+<h2>نمایش جزئیات @Model.SiteName</h2>
+<hr />
+
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SiteName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SiteName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SiteDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SiteDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SiteAbout)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SiteAbout)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("ویرایش", "Edit", new { id = Model.SiteID }, new { @class = "btn btn-danger" }) |
+    @Html.ActionLink("بازگشت به لیست", "Index")
+</p>

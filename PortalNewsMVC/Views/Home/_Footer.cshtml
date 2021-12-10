@@ -1,0 +1,73 @@
+﻿@model IEnumerable<PortalNewsMVC.Models.Domain.News>
+    <div class="footer-section">
+        <div class="container">
+            <div class="footer-grids">
+                <div class="col-md-4 footer-grid">
+                    <h4>
+                        نوشته سردبیر
+                    </h4>
+                    @foreach (var item in Model.Take(3))
+                    {
+                        <div class="editor-pics">
+                            <div class="col-md-3 item-pic">
+                                <img src="~/Upload/Images/Thumb/@item.NewsImage"
+                                     class="img-responsive" alt="@item.NewsTitle" />
+
+                            </div>
+                            <div class="col-md-9 item-details">
+                                <h5 class="inner"><a href="/Home/SinglePage/@item.NewsID"> @item.NewsTitle</a></h5>
+                                <div class="td-post-date">@item.NewsDate.ToString("yyyy/MM/dd")</div>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    }
+
+                </div>
+                <div class="col-md-4 footer-grid">
+                    <h4>
+                        محبوب پست ها
+                    </h4>
+                    @foreach (var item in Model.Take(3))
+                    {
+                        <div class="editor-pics">
+                            <div class="col-md-3 item-pic">
+                                <img src="~/Upload/Images/Thumb/@item.NewsImage"
+                                     class="img-responsive" alt="@item.NewsTitle" />
+
+                            </div>
+                            <div class="col-md-9 item-details">
+                                <h5 class="inner"><a href="/Home/SinglePage/@item.NewsID"> @item.NewsTitle</a></h5>
+                                <div class="td-post-date">@item.NewsDate.ToString("yyyy/MM/dd")</div>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    }
+
+
+                </div>
+                <div class="col-md-4 footer-grid">
+                    <h4>
+                        دسته بندی محبوب
+                    </h4>
+                    <ul class="td-pb-padding-side">
+                        @*@foreach (var item in Model.Take(5))
+                        {
+                            <li><a href="#">@item.Categorye.CategoryTitle</a></li>
+
+                        }*@
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+    <!--//end-footer-section-->
+    <!--/start-copyleft-section-->
+<div class="copyleft">
+        <p>
+
+            کلیه حقوق این وبسایت متعلق به AMZEnterprise می باشد
+            <a href="https://www.amzenterprise.ir" target="_blank">ای ام زد</a>
+        </p>
+    </div>

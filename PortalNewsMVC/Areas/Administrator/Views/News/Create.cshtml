@@ -1,0 +1,130 @@
+﻿@model PortalNewsMVC.Models.Domain.News
+
+@{
+    ViewBag.Title = "خبر جدید";
+    Layout = "~/Areas/Administrator/Views/Shared/_Shared.cshtml";
+}
+<h2>تعریف خبر جدید</h2>
+<hr />
+@using (Html.BeginForm(null, null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.NewsCategoryID, "گروه", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("NewsCategoryID", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.NewsCategoryID, "", new { @class = "text-danger" })
+            </div>
+            @*@Html.DropDownList("NewsCategoryID", String.Empty)*@
+
+
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.SubCategoryID, "زیر گروه", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("SubCategoryID", null, htmlAttributes: new { @class = "form-control" })
+
+
+                @*@Html.DropDownList("SubCategoryID", String.Empty)*@
+
+
+
+
+                @Html.ValidationMessageFor(model => model.SubCategoryID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.NewsTitle, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.NewsTitle, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.NewsTitle, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.NewsDescription, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.NewsDescription, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.NewsDescription, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.NewsImage, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="file" name="NewsImage" id="NewsImage" />
+                @Html.ValidationMessageFor(model => model.NewsImage, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            @Html.Label("تصاویر خبری", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="file" name="galleryImage" id="galleryImage" multiple  />
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="ثبت خبر" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+
+
+    @section script
+    {
+
+        <script src="/CDN/Admin/js/jquery-1.10.2.js"></script>
+        <script src="/ckeditor/ckeditor.js"></script>
+        <script src="/ckeditor/adapters/jquery.js"></script>
+        <script>
+
+            $(function () {
+                $('#NewsDescription').ckeditor();
+            });
+        </script>
+
+        <script>
+            $(document).ready(function () {
+                //Dropdownlist Selectedchange event
+                $("#NewsCategoryID").change(function () {
+                    $("#SubCategoryID").empty();
+                    $.ajax({
+                        type: 'POST',
+                        url: '@Url.Action("SelectSubCategory")',
+                        dataType: 'json',
+                        data: { id: $("#NewsCategoryID").val() },
+                        success: function (states) {
+                            $.each(states, function (i, state) {
+                                $("#SubCategoryID").append('<option value="'
+                                    + state.SubCategoryID + '">'
+                                    + state.SubCategoryName + '</option>');
+                            });
+                        },
+                        error: function (ex) {
+                            alert('Failed to retrieve states.' + ex.responseText);
+                        }
+                    });
+                    return false;
+                })
+            });
+        </script>
+    }
+
+
+
+}
+
+<div>
+    @Html.ActionLink("بازگشت به لیست", "Index")
+</div>
+

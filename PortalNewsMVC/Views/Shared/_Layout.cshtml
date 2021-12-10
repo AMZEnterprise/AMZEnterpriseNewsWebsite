@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - مجله خبری ای ام زد</title>
+    @*<link href="~/Content/Site.css" rel="stylesheet" type="text/css" />*@
+    @*<link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />*@
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+
+
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <link href="/CDN/Theme/css/bootstrap-3.1.1.min.css" rel="stylesheet" type="text/css">
+    <!-- Custom Theme files -->
+    <link href="/CDN/Theme/css/owl.carousel.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="/CDN/Theme/css/style.css" rel='stylesheet' type='text/css' />
+    <script src="/CDN/Theme/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/CDN/Theme/js/move-top.js"></script>
+    <script type="text/javascript" src="/CDN/Theme/js/easing.js"></script>
+    <link rel="stylesheet" href="/CDN/Theme/css/flexslider.css" type="text/css" media="screen" />
+    <!--/script-->
+    <script type="text/javascript">
+        jQuery(document).ready(function ($) {
+            $(".scroll").click(function (event) {
+                event.preventDefault();
+                $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 900);
+            });
+        });
+    </script>
+
+
+</head>
+<body>
+    @Html.Action("Header", "Home")
+    @Html.Action("Banner", "Home")
+
+    <div class="main-content">
+        <div class="container">
+
+            @RenderBody()
+
+        </div>
+    </div>
+
+    @Html.Action("Footer", "Home")
+
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <!--start-smoth-scrolling-->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            /*
+            var defaults = {
+                containerID: 'toTop', // fading element id
+                containerHoverID: 'toTopHover', // fading element hover id
+                scrollSpeed: 1200,
+                easingType: 'linear'
+            };
+            */
+
+            $().UItoTop({ easingType: 'easeOutQuart' });
+
+        });
+    </script>
+    <a href="#home" id="toTop" class="scroll" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+
+
+    <!--JS-->
+    @*<script type="text/javascript" src="js/bootstrap-3.1.1.min.js"></script>*@
+</body>
+</html>

@@ -1,0 +1,78 @@
+﻿@model PortalNewsMVC.Models.Domain.User
+
+@{
+    ViewBag.Title = "حذف" + " " + Model.FullName;
+    Layout = "~/Areas/Administrator/Views/Shared/_Shared.cshtml";
+}
+
+<h2>حذف @Model.FullName</h2>
+
+@*<h3 class="alert alert-danger">آیا از حذف @Model.FullName با سطح دسترسی @Model.Role.RoleTitle مطمن هستید ؟</h3>*@
+<div>
+ 
+    <table class="table table-bordered table-hover table-responsive ">
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.Username)
+
+
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.Username)
+            </td>
+        </tr>
+
+
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.Email)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.FullName)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.FullName)
+            </td>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.Date)
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.Role.RoleTitle)
+
+
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.Role.RoleTitle)
+
+
+            </td>
+        </tr>
+
+
+
+
+
+    </table>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+        <h5 class="alert alert-danger">آیا از حذف @Model.FullName با سطح دسترسی @Model.Role.RoleTitle مطمن هستید ؟</h5>
+
+        <div class="form-actions no-color">
+            <input type="submit" value="حذف اطلاعات" class="btn btn-warning" /> |
+            @Html.ActionLink("انصراف", "Index",null,new { @class = "btn btn-danger" })
+        </div>
+    }
+</div>

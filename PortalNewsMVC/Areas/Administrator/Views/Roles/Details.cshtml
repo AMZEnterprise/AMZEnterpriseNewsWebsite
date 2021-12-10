@@ -1,0 +1,73 @@
+﻿@model PortalNewsMVC.Models.Domain.Role
+
+@{
+    ViewBag.Title = "جزئیات" + " " + Model.RoleTitle;
+    Layout = "~/Areas/Administrator/Views/Shared/_Shared.cshtml";
+}
+
+<h2>جزئیات اطلاعات @Model.RoleTitle</h2>
+
+<div>
+
+    <hr />
+    <div class="col-md-6">
+        <table class="table table-bordered table-hover table-responsive">
+
+
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.RoleID)
+
+
+                </th>
+                <th>
+                    @Html.DisplayFor(model => model.RoleID)
+
+
+                </th>
+
+
+
+            </tr>
+
+
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.RoleTitle)
+
+
+                </th>
+                <th>
+                    @Html.DisplayFor(model => model.RoleTitle)
+
+
+                </th>
+
+
+
+            </tr>
+
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.RoleName)
+
+
+                </th>
+
+                <th>
+                    @Html.DisplayFor(model => model.RoleName)
+
+
+                </th>
+            </tr>
+
+
+        </table>
+        <p>
+            @Html.ActionLink("ویرایش اطلاعات", "Edit", new { id = Model.RoleID },new { @class = "btn btn-success" }) |
+            @Html.ActionLink("انصراف", "Index",null, new { @class = "btn btn-danger" })
+        </p>
+    </div>
+   
+</div>
+

@@ -1,0 +1,41 @@
+﻿<div class="banner">
+	<div class="container">
+		<div class="banner-inner">
+			<div class="callbacks_container">
+				<ul class="rslides callbacks callbacks1" id="slider4">
+					<li class="callbacks1_on" style="display: block; float: right; position: relative; opacity: 1; z-index: 2; transition: opacity 500ms ease-in-out;">
+						<div class="banner-info">
+							<h3>وبسایت خبری ما</h3>
+							<p>
+								برنامه نویس : علی مومن زاده
+							</p>
+						</div>
+					</li>
+
+				</ul>
+			</div>
+			<!--banner-Slider-->
+			<script src="/CDN/Theme/js/responsiveslides.min.js"></script>
+			<script>
+						// You can also use "$(window).load(function() {"
+						$(function () {
+						  // Slideshow 4
+						  $("#slider4").responsiveSlides({
+						auto: true,
+						pager: true,
+						nav:false,
+						speed: 500,
+						namespace: "callbacks",
+						before: function () {
+						  $('.events').append("<li>before event fired.</li>");
+						},
+						after: function () {
+						  $('.events').append("<li>after event fired.</li>");
+						}
+						  });
+
+						});
+			</script>
+		</div>
+	</div>
+</div>
